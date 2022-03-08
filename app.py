@@ -1,10 +1,22 @@
 from flask import Flask
+import flask
+import os
+import datetime
+
+path = os.path.dirname(__file__)
+
+from chameleon import PageTemplateLoader
+
+
 
 app = Flask(__name__)
 
+
 @app.route("/")
 def hello_world():
-    return "<p>Hello, World2!</p>"
+    templates = PageTemplateLoader(os.path.join(path, "templates"), 'pt')
+    template = templates['hello']
+    return template(now=datetime.datetime.now().strftime('%H:%M:%S'),flask=flask)
 
 
 if __name__ == '__main__':
