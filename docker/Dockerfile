@@ -12,12 +12,12 @@ ENV PATH="$VIRTUAL_ENV/bin:$PATH"
 RUN python -m pip install --upgrade pip
 RUN pip install supervisor
 
+RUN echo 7
+
 COPY supervisord.conf .
 COPY clone.sh .
 COPY start_supervisord.sh .
 COPY update.sh .
-
-RUN echo 1
 
 EXPOSE 5001 9001
 ENTRYPOINT ["/bin/bash", "start_supervisord.sh"]

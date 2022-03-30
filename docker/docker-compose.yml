@@ -6,4 +6,6 @@ services:
       - "5002:5001"
       - "9002:9001"
     restart: always
+    env_file:
+      .env
 
