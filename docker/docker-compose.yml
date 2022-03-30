@@ -1,0 +1,9 @@
+version: "3.9"
+services:
+  gopoc:
+    build: .
+    ports:
+      - "5002:5001"
+      - "9002:9001"
+    restart: always
+
