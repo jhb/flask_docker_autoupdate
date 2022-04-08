@@ -30,3 +30,5 @@ requests~=2.27.1
 tabulate~=0.8.9
 Flask~=2.0.2
 supervisor
+PyYAML
+

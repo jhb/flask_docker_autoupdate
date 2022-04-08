@@ -2,6 +2,7 @@ from flask import Flask
 import flask
 import os
 import datetime
+import yaml
 
 path = os.path.dirname(__file__)
 
@@ -16,7 +17,8 @@ app = Flask(__name__)
 def hello_world():
     templates = PageTemplateLoader(os.path.join(path, "templates"), 'pt')
     template = templates['hello']
-    return template(now=datetime.datetime.now().strftime('%H:%M:%S'),flask=flask)
+    y = yaml.dump(dict(foo=['bar','baz']))
+    return template(now=datetime.datetime.now().strftime('%H:%M:%S'),flask=flask,y=y)
 
 
 if __name__ == '__main__':
